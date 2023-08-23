@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 public class Ui extends JFrame {
 
     private MyPanel mainPanel;
+    UserInput MainInput;
 
     //start of programe
     public static void main(String[] args) {
@@ -30,7 +31,8 @@ public class Ui extends JFrame {
 		this.setVisible(true);
 
         //initialize key input
-		addKeyListener(new UserInput());
+        MainInput = new UserInput();
+		addKeyListener(MainInput);
 	}  
 
     //start of Panel/game loop
@@ -54,7 +56,7 @@ public class Ui extends JFrame {
             System.out.println("Graphics Started ");
 
             //start game loop
-            GameLoop = new Timer(GameSettings.UPDATE_GAME_LOOP_MS, this);
+            GameLoop = new Timer(GameSettings.UpdateRateMs, this);
             GameLoop.start();
         }
 
@@ -74,6 +76,9 @@ public class Ui extends JFrame {
         @Override public void actionPerformed(ActionEvent e) {
             
             //System.out.println("loop " + testCountLoop++);
+
+            GameClock.TickMasterTimer(); //update main game clock
+            MainInput.UpdateKeyTimers(); //update user input timers
 
             //redraw graphics
             repaint();
