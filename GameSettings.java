@@ -4,9 +4,9 @@ public class GameSettings {
     static final int WINDOW_HEIGHT = 270;
 
     //timing
-    static final long MillisecondsInsecond = 1_000;
+    static final int MillisecondsInsecond = 1_000;
     static final int UpdateRateHz = 25;
-    static final long UpdateRateMs = MillisecondsInsecond / UpdateRateHz;
+    static final int UpdateRateMs = MillisecondsInsecond / UpdateRateHz;
     
     static final int MaxTimerTicks = 1_000_000;
 

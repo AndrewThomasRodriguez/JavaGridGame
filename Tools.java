@@ -8,6 +8,6 @@ public class Tools {
      }
 
      static int MsToTicks(int milliseconds){
-        return milliseconds / (int)GameSettings.UpdateRateMs;
+        return milliseconds / GameSettings.UpdateRateMs;
      }
 }
