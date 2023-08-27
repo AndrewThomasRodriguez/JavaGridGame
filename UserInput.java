@@ -15,10 +15,10 @@ enum KEYS {
 
 public class UserInput implements KeyListener {
 
-    final int keyCount = 7; //count of all the keys
+    final int keyCount = 7; //count of all the keys types
     boolean[] keyState = new boolean[keyCount];
     int[] keyStateTimer = new int[keyCount]; 
-    int keyTimerLastUpdate = 0;
+    //int keyTimerLastUpdate = 0;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -35,9 +35,19 @@ public class UserInput implements KeyListener {
             //move timer based on key state
             if (keyState[keyId]){
                 if (keyStateTimer[keyId] < 0) keyStateTimer[keyId] = 0; //reset timer if new state
+                
+                //test
+                System.out.println("keyPressed=" + keyId);
+
                 keyStateTimer[keyId]++;
+
             } else { 
                 if (keyStateTimer[keyId] > 0) keyStateTimer[keyId] = 0;
+
+                //test
+                if (keyStateTimer[keyId] == 0)
+                System.out.println("keyRelease=" + keyId);
+
                 keyStateTimer[keyId]--;
             }
 
@@ -56,19 +66,23 @@ public class UserInput implements KeyListener {
         
         switch(keyCode){
             case 'W':
+            case 'I':
             case 38: //up arrow
                 keyState[KeytoId(KEYS.UP)] = true;
                 break;
             case 'S':
+            case 'K':
             case 40: //down arrow
                 keyState[KeytoId(KEYS.DOWN)] = true;
                 break;
-            case 'D': //right
-            case 39:
+            case 'D': 
+            case 'L':
+            case 39: //right arrow
                 keyState[KeytoId(KEYS.RIGHT)] = true;
                 break;
             case 'A':
-            case 37:
+            case 'J':
+            case 37: //left arrow
                 keyState[KeytoId(KEYS.LEFT)] = true;
                 break;
             case 27: //esc
@@ -96,19 +110,23 @@ public class UserInput implements KeyListener {
         
         switch(keyCode){
             case 'W':
+            case 'I':
             case 38: //up arrow
                 keyState[KeytoId(KEYS.UP)] = false;
                 break;
             case 'S':
+            case 'K':
             case 40: //down arrow
                 keyState[KeytoId(KEYS.DOWN)] = false;
                 break;
-            case 'D': //right
-            case 39:
+            case 'D': 
+            case 'L':
+            case 39: //right arrow
                 keyState[KeytoId(KEYS.RIGHT)] = false;
                 break;
             case 'A':
-            case 37:
+            case 'J':
+            case 37: //left arrow
                 keyState[KeytoId(KEYS.LEFT)] = false;
                 break;
             case 27: //esc

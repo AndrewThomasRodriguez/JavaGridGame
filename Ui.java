@@ -79,7 +79,7 @@ public class Ui extends JFrame {
 
             GameClock.TickMasterTimer(); //update main game clock
             MainInput.UpdateKeyTimers(); //update user input timers
-
+            
             //redraw graphics
             repaint();
         }

@@ -10,4 +10,8 @@ public class Tools {
      static int MsToTicks(int milliseconds){
         return milliseconds / GameSettings.UpdateRateMs;
      }
+
+     static long MsToTicks(long milliseconds){
+        return milliseconds / GameSettings.UpdateRateMs;
+     }
 }
